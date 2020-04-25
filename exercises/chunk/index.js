@@ -8,6 +8,50 @@
 // chunk([1, 2, 3, 4, 5], 4) --> [[ 1, 2, 3, 4], [5]]
 // chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
 
-function chunk(array, size) {}
+
+// 1. return chunked array
+// 2. if no sub array, push array of first element, [ element ]
+// 3. if sub array length is same with size, push new array of element [ element ]
+// 4. OR push element into 
+
+function chunk(array, size) {
+  const chunked = [];
+  for(let i = 0; i < array.length; i += size) {
+    chunked.push(array.slice(i, i + size));
+  }
+  console.log(chunked);
+  return chunked;
+  // const chunked = [];
+  
+  // for (const elem of array){
+  //   const nextSubArr = chunked[chunked.length - 1];
+  //   if (!nextSubArr || nextSubArr.length === size) {
+  //     chunked.push([elem]);
+  //   } else {
+  //     nextSubArr.push(elem);
+  //   }
+  // }
+  // return chunked;
+
+  // const result = [];
+  // let buff = [];
+  // let count = 1;
+  // for(const num of array) {
+  //   if (count < size) {
+  //     buff.push(num);
+  //     count++;
+  //     continue;
+  //   } else if (count === size) {
+  //     buff.push(num);
+  //     result.push(buff);
+  //     buff = [];
+  //     count = 1;
+  //     continue;
+  //   }
+  // }
+  // if (buff.length > 0) result.push(buff);
+  // console.log(result);
+  // return result;
+}
 
 module.exports = chunk;
